@@ -32,9 +32,9 @@ def Start_Password_verification():
 
         # 减少密码尝试次数
         Number_Of_Password_Trials -= 1
-        # 打印消息和剩余尝试次数
+        # 打印消息
         print('用户名或密码错误')
-        print(f'你还有{Number_Of_Password_Trials}机会')
+        print('请重试')
 
     # 打印消息并休眠3秒
     print('密码错误次数过多')
