@@ -28,7 +28,7 @@ def Start_Password_verification():
                 print('正在进入系统...')
                 sleep(3)
                 # 从函数返回
-                return  
+                return 0
 
         # 减少密码尝试次数
         Number_Of_Password_Trials -= 1
