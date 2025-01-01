@@ -3,7 +3,7 @@ from time import sleep
 from os import system
 
 # 打开 users.json 文件并加载数据
-with open('users.json', 'r') as file:
+with open('users.py', 'r') as file:
     data = json.load(file)
 
 # 定义一个函数以启动密码验证过程
@@ -57,7 +57,7 @@ from time import sleep
 from os import system
 
 # Open the users.json file and load the data
-with open('users.json', 'r') as file:
+with open('users.py', 'r') as file:
     data = json.load(file)
 
 # Define a function to start the password verification process

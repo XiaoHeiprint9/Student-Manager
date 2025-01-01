@@ -1,6 +1,6 @@
-# with open('sss.json','w'):
+# with open('users.py','w'):
 #     pass
-a=open('sss.json','a')
+a=open('users.json','a')
 a.write('n')
 a.close()
 print(a)
