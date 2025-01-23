@@ -34,7 +34,8 @@ while True:
     print('1.录入')
     print('2.删除')
     print('3.查看')
-    print('4.退出')
+    print('4.添加/删除用户(需要管理员授权)')
+    print('5.退出')
     number = input('请输入数字：')
     students = {}
     if number  == '1':
@@ -64,6 +65,6 @@ while True:
     if number == '3':
         for index, item in enumerate(students, start=0):
             print(f"{index}. {item}")
-    if number == '4':
+    if number == '5':
         print('程序已退出！')
         exit()
