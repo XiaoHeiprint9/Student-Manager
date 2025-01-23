@@ -2,60 +2,6 @@ import json
 from time import sleep
 from os import system
 
-# 打开 users.json 文件并加载数据
-with open('users.json', 'r') as file:
-    data = json.load(file)
-
-# 定义一个函数以启动密码验证过程
-def Start_Password_verification():
-    # 设置密码尝试次数为3
-    Number_Of_Password_Trials = 3
-    # 当密码尝试次数大于0时
-    while Number_Of_Password_Trials > 0:
-        # 获取用户输入的用户名和密码
-        user_input = input("请输入用户名: ")
-        password_input = input("请输入密码: ")
-
-        # 遍历数据中的用户
-        for user in data['users']:
-            
-            # 如果用户名和密码匹配
-            if user['name'] == user_input and user['password'] == password_input:
-                # 打印消息并休眠3秒
-                print('用户信息正确')
-                sleep(3)
-                # 打印消息并休眠3秒
-                print('正在进入系统...')
-                sleep(3)
-                # 从函数返回
-                return 0
-
-        # 减少密码尝试次数
-        Number_Of_Password_Trials -= 1
-        # 打印消息
-        print('用户名或密码错误')
-        print('请重试')
-
-    # 打印消息并休眠3秒
-    print('密码错误次数过多')
-    sleep(3)
-    # 打印消息并休眠3秒
-    print('正在删除系统...')
-    sleep(3)
-    # 打印消息
-    print('Done!')
-    sleep(1)
-    # 清除屏幕
-    system('cls')
-    # 退出程序
-    exit()
-
-"""
-# 原始代码
-import json
-from time import sleep
-from os import system
-
 # Open the users.json file and load the data
 with open('users.json', 'r') as file:
     data = json.load(file)
@@ -104,4 +50,4 @@ def Start_Password_verification():
     # Exit the program
     exit()
 
-"""
+
