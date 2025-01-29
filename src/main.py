@@ -65,6 +65,8 @@ while True:
     if number == '3':
         for index, item in enumerate(students, start=0):
             print(f"{index}. {item}")
+    if number =='4':
+        pass
     if number == '5':
         print('程序已退出！')
         exit()
