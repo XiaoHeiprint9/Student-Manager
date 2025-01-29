@@ -28,13 +28,13 @@ def Start_Password_verification():
                 print('正在进入系统...')
                 sleep(3)
                 # Return from the function
-                return  
+                return 0
 
         # Decrement the number of password trials
         Number_Of_Password_Trials -= 1
         # Print a message and the number of remaining trials
         print('用户名或密码错误')
-        print(f'你还有{Number_Of_Password_Trials}机会')
+        print('请重试!')
 
     # Print a message and sleep for 3 seconds
     print('密码错误次数过多')
