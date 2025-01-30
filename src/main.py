@@ -1,5 +1,6 @@
 from time import *
 from Password_verification import Start_Password_verification
+from Add_or_remove_users import Start_ADMIN_Password_verification
 Start_Password_verification()
 """ 
 # Alternate scenarios
@@ -66,7 +67,7 @@ while True:
         for index, item in enumerate(students, start=0):
             print(f"{index}. {item}")
     if number =='4':
-        pass
+        Start_ADMIN_Password_verification()
     if number == '5':
         print('程序已退出！')
         exit()

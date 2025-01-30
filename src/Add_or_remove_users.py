@@ -1,6 +1,25 @@
 from time import sleep
 from os import system
+from  platform import system
 import json
+admin = False
+# 定义一个清屏函数
+def clear_screen():
+    # Determine the current operating system
+    if system() == "Windows":
+        # If it's a Windows system, execute the clear screen command
+        system('cls')
+    else:
+        # If it's not a Windows system, execute the clear screen command
+        system('clear')
+# Define a function to modify the value of the global variable admin
+
+def modify_global():
+    # Declare admin as a global variable
+    global admin
+    # Set the value of admin to True
+    admin = True
+
 # with open('users.json','w'):
 #     pass
 # # 定义JSON对象
@@ -14,7 +33,6 @@ import json
 # # 将JSON对象写入文件
 # with open('users.json', 'w', encoding='utf-8') as file:
 #     json.dump(data, file, ensure_ascii=False, indent=4) 27 2
-
 with open('users.json', 'r') as ad_file:
     data = json.load(ad_file)
 
@@ -36,8 +54,7 @@ def Start_ADMIN_Password_verification():
                 print('用户信息正确')
                 sleep(3)
                 # Print a message and sleep for 3 seconds
-                print('正在进入系统...')
-                sleep(3)
+                modify_global()
                 # Return from the function
                 return 0
 
@@ -57,6 +74,6 @@ def Start_ADMIN_Password_verification():
     print('Done!')
     sleep(1)
     # Clear the screen
-    system('cls')
+    clear_screen()
     # Exit the program
     exit()
