@@ -20,15 +20,20 @@ def modify_global():
     # Set the value of admin to True
     admin = True
 
-# with open('users.json','w'):
-#     pass
-# # 定义JSON对象
-# data = {
-#     "users": [
-#         {"name": "Alice", "password": "123456"},
-#         {"name": "Bob", "password": "114514"}
-#     ]
-# }
+"""
+with open('users.json','w'):
+    pass
+# 定义JSON对象
+data = {
+    "users": [
+        {"name": "Alice", "password": "123456"},
+        {"name": "Bob", "password": "114514"}
+    ],
+    "Administrator_users": [
+        {"admin_username": "Admin", "admin_password": "admin"}
+    ]
+}
+"""
 
 # # 将JSON对象写入文件
 # with open('users.json', 'w', encoding='utf-8') as file:
@@ -55,8 +60,9 @@ def Start_ADMIN_Password_verification():
                 sleep(3)
                 # Print a message and sleep for 3 seconds
                 modify_global()
+                admin == True
                 # Return from the function
-                return 0
+                return True
 
         # Decrement the number of password trials
         Number_Of_Password_Trials -= 1
@@ -77,3 +83,4 @@ def Start_ADMIN_Password_verification():
     clear_screen()
     # Exit the program
     exit()
+    
