@@ -2,7 +2,7 @@ from time import *
 from Password_verification import Start_Password_verification
 from Add_or_remove_users import Start_ADMIN_Password_verification,admin
 
-#Start_Password_verification()
+Start_Password_verification()
 
 print('****************************************')#14
 print('****************************************')
