@@ -83,4 +83,7 @@ def Start_ADMIN_Password_verification():
     clear_screen()
     # Exit the program
     exit()
-    
+    if admin == True:
+            pass
+    else:
+            pass
