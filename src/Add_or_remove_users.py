@@ -35,7 +35,7 @@ data = {
 }
 """
 
-# # 将JSON对象写入文件
+# # Write JSON object to a file
 # with open('users.json', 'w', encoding='utf-8') as file:
 #     json.dump(data, file, ensure_ascii=False, indent=4) 27 2
 with open('users.json', 'r') as ad_file:
