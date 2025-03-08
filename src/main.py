@@ -16,7 +16,7 @@ while True:
     print('1.录入')
     print('2.删除')
     print('3.查看')
-    print('4.添加/删除用户(需要管理员授权)')
+    print('4.添加/删除用户账户(需要管理员授权)')
     print('5.退出')
     number = input('请输入数字：')
     students = {}
