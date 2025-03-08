@@ -3,7 +3,7 @@ from Password_verification import Start_Password_verification
 from Add_or_remove_users import Start_ADMIN_Password_verification,admin
 from json import *
 
-Start_Password_verification()
+Start_ADMIN_Password_verification()
 
 print('************************************************')#14
 print('************************************************')
@@ -61,10 +61,9 @@ while True:
         except FileNotFoundError:
             print("用户文件不存在！")
     if number =='5':
-        users = open("users.json", "a")
         user1 = input("请输入新的用户名：")
         user_password = input("请输入新用户的密码：")
-        user_data = {{"name": user1, "password": user_password}}
+        user_data = {"name": user1, "password": user_password}  # 修复此行
         try:
             with open("users.json", "r", encoding="utf-8") as user_file:
                 data = load(user_file)
@@ -76,7 +75,6 @@ while True:
         # 将修改后的数据写回 JSON 文件
         with open("users.json", "w", encoding="utf-8") as user_file:
             dump(data, user_file, indent=4, ensure_ascii=False)
-            user_file.close
         print('新用户创建成功!')
     if number == '6':
         try:
