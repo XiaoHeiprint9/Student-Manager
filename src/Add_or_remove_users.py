@@ -38,7 +38,7 @@ data = {
 # # Write JSON object to a file
 # with open('users.json', 'w', encoding='utf-8') as file:
 #     json.dump(data, file, ensure_ascii=False, indent=4) 27 2
-with open('users.json', 'r') as ad_file:
+with open('src/users.json', 'r') as ad_file:
     data = json.load(ad_file)
 
 def Start_ADMIN_Password_verification():

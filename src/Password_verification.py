@@ -23,7 +23,7 @@ logo = """
 print(logo)
 
 # Open the users.json file and load the data
-with open('users.json', 'r') as file:
+with open('src/users.json', 'r') as file:
     data = json.load(file)
 
 # Define a function to start the password verification process
