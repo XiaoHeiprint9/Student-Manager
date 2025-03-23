@@ -2,7 +2,7 @@ from time import *
 from Password_verification import Start_Password_verification
 from Add_or_remove_users import Start_ADMIN_Password_verification,admin
 
-#Start_Password_verification()
+Start_Password_verification()
 
 print('****************************************')#14
 print('****************************************')
@@ -23,9 +23,8 @@ while True:
     if number  == '1':
         students1 = input('请输入学生姓名：')
         students2 =input('请输入学号：')
-        print('OK')
-        students = {students1:students2}
-        print(students)
+        print('录入成功！')
+        students.setdefault(students1,students2)
     if number == '2':
         # 使用 enumerate() 函数给列表中的每个元素标上序号
         for index, item in enumerate(students, start=1):
@@ -40,12 +39,12 @@ while True:
         # 输出删除后的列表
         print("删除后的列表：")
         for index, item in enumerate(students, start=1):
-            print(f"{index}. {item}")
+            print(f"{index}. {item}") 
         if students == None:
             print('系统内无学生信息！')
     if number == '3':
-        for index, item in enumerate(students,start=1):
-            print(f"{index}. {item}")
+        for index, (name, student_id) in enumerate(students.items(), start=1):
+            print(f"{index}. 姓名: {name}, 学号: {student_id}")
     if number =='4':
         admin = Start_ADMIN_Password_verification()
         if admin == True:
