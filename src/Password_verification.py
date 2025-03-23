@@ -1,6 +1,6 @@
 import json
 from time import sleep
-from os import system
+from os import system, path
 
 logo = """
  /$$      /$$               /$$                /$$$$$$$          
@@ -13,7 +13,7 @@ logo = """
 |__/     |__/\_______/\_______/\_______/      |_______/ \____  $$
                                                         /$$  | $$
                                                        |  $$$$$$/
-                                                        \______/ 
+                                                        \______/
 ██╗  ██╗██╗ █████╗  ██████╗ ██╗  ██╗███████╗██╗
 ╚██╗██╔╝██║██╔══██╗██╔═══██╗██║  ██║██╔════╝██║
  ╚███╔╝ ██║███████║██║   ██║███████║█████╗  ██║
@@ -22,8 +22,13 @@ logo = """
 ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝"""
 print(logo)
 
+# 获取当前文件的目录
+current_dir = path.dirname(path.abspath(__file__))
+# 构建 users.json 文件的绝对路径
+users_file_path = path.join(current_dir, 'users.json')
+
 # Open the users.json file and load the data
-with open('src/users.json', 'r') as file:
+with open(users_file_path, 'r') as file:
     data = json.load(file)
 
 # Define a function to start the password verification process
@@ -69,5 +74,3 @@ def Start_Password_verification():
     system('cls')
     # Exit the program
     exit()
-
-

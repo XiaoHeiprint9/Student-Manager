@@ -2,6 +2,7 @@ from time import sleep
 from os import system
 from  platform import system
 import json
+from os import system, path
 admin = False
 # 定义一个清屏函数
 def clear_screen():
@@ -38,8 +39,14 @@ data = {
 # # Write JSON object to a file
 # with open('users.json', 'w', encoding='utf-8') as file:
 #     json.dump(data, file, ensure_ascii=False, indent=4) 27 2
-with open('src/users.json', 'r') as ad_file:
-    data = json.load(ad_file)
+# 获取当前文件的目录
+current_dir = path.dirname(path.abspath(__file__))
+# 构建 users.json 文件的绝对路径
+users_file_path = path.join(current_dir, 'users.json')
+
+# Open the users.json file and load the data
+with open(users_file_path, 'r') as file:
+    data = json.load(file)
 
 def Start_ADMIN_Password_verification():
     # Set the number of password trials to 3
