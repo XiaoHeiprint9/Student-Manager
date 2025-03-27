@@ -1,13 +1,14 @@
 from time import *
 from Password_verification import Start_Password_verification
 from Add_or_remove_users import Start_ADMIN_Password_verification,admin
+from Branch_main_class import Admin_UX_UI
 
 Start_Password_verification()
 
 print('****************************************')#14
 print('****************************************')
 print('****************************************')
-print('********欢迎使用信息学生管理系统********')
+print('********欢迎使用学生信息管理系统********')
 print('****************************************')
 print('****************************************')
 print('****************************************')
@@ -49,6 +50,7 @@ while True:
         admin = Start_ADMIN_Password_verification()
         if admin == True:
             print("管理员登录成功！")
+            Admin_UX_UI()
         else:
             print("管理员登录失败！")
     if number == '5':
