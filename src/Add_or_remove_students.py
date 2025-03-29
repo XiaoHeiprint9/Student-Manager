@@ -27,7 +27,8 @@ def look_student():
                 for index, student in enumerate(students, start=1):
                     print(f"{index}. 姓名: {student['name']}, 学号: {student['Student_ID']}")
     except FileNotFoundError:
-        print("用户文件不存在！")
+        print("文件不存在！")
+        return 0
 
 def add_student():
     student1 = input("请输入学生姓名：")
@@ -56,11 +57,11 @@ def remove_student():
             data = load(student_file)
     except FileNotFoundError:
         print("学生文件不存在！")
-        
-            
+        return 0
     students = data.get("students", [])
     if not students:
         print("没有学生可以删除！")
+        return 0
 
     print("学生列表：")
     for index, student in enumerate(students, start=1):

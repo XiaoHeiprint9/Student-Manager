@@ -1,10 +1,15 @@
 from time import *
+from os import path
 from Password_verification import Start_Password_verification
 from Add_or_remove_users import Start_ADMIN_Password_verification,admin
 from Branch_main_class import Admin_UX_UI
 from Add_or_remove_students import look_student, add_student, remove_student
 
 Start_Password_verification()
+
+current_dir = path.dirname(path.abspath(__file__))
+# 构建 users.json 文件的绝对路径
+students_file_path = path.join(current_dir, 'students.json')
 
 print('****************************************')#14
 print('****************************************')
