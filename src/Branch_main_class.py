@@ -33,22 +33,27 @@ def Admin_UX_UI():
             print('录入成功！')
             students.setdefault(students1,students2)
         if number == '2':
-            # 使用 enumerate() 函数给列表中的每个元素标上序号
-            for index, item in enumerate(students, start=1):
-                print(f"{index}. {item}")
-            user_input = int(input("请输入要删除的学生的序号："))
-            # 计算对应的索引并删除列表中的元素
-            if 1 <= user_input <= len(students):
-                del students[user_input - 1]
-                print("已删除 {user_input} 。")
-            else:
-                print("无效的序号，请重新输入。")
-            # 输出删除后的列表
-            print("删除后的列表：")
-            for index, item in enumerate(students, start=1):
-                print(f"{index}. {item}")
-            if students == None:
+            if not students:
                 print('系统内无学生信息！')
+            else:
+                # 使用 enumerate() 函数给字典中的每个键标上序号
+                for index, item in enumerate(students, start=1):
+                    print(f"{index}. {item}")
+                try:
+                    user_input = int(input("请输入要删除的学生的序号："))
+                    if 1 <= user_input <= len(students):
+                        # 获取要删除的学生姓名
+                        student_name = list(students.keys())[user_input - 1]
+                        del students[student_name]
+                        print(f"已删除 {student_name} 。")
+                    else:
+                        print("无效的序号，请重新输入。")
+                except ValueError:
+                    print("输入无效，请输入数字！")
+                # 输出删除后的列表
+                print("删除后的列表：")
+                for index, item in enumerate(students, start=1):
+                    print(f"{index}. {item}")
         if number == '3':
             for index, (name, student_id) in enumerate(students.items(), start=1):
                 print(f"{index}. 姓名：{name}, 学号：{student_id}")

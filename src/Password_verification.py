@@ -26,6 +26,23 @@ print(logo)
 current_dir = path.dirname(path.abspath(__file__))
 # 构建 users.json 文件的绝对路径
 users_file_path = path.join(current_dir, 'users.json')
+with open(users_file_path,'w'):
+    pass
+# 定义JSON对象
+
+udata = {
+    "users": [
+        {"name": "Alice", "password": "123456"},
+        {"name": "Bob", "password": "114514"}
+    ],
+    "Administrator_users": [
+        {"admin_username": "Admin", "admin_password": "admin"}
+    ]
+}
+
+# Write JSON object to a file
+with open(users_file_path, 'w', encoding='utf-8') as file:
+    json.dump(udata, file, ensure_ascii=False, indent=4)
 
 # Open the users.json file and load the data
 with open(users_file_path, 'r') as file:

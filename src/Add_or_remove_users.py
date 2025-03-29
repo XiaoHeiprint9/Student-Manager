@@ -4,6 +4,9 @@ from  platform import system
 import json
 from os import system, path
 admin = False
+
+
+
 # 定义一个清屏函数
 def clear_screen():
     # Determine the current operating system
@@ -20,29 +23,13 @@ def modify_global():
     global admin
     # Set the value of admin to True
     admin = True
-
-"""
-with open('users.json','w'):
-    pass
-# 定义JSON对象
-data = {
-    "users": [
-        {"name": "Alice", "password": "123456"},
-        {"name": "Bob", "password": "114514"}
-    ],
-    "Administrator_users": [
-        {"admin_username": "Admin", "admin_password": "admin"}
-    ]
-}
-"""
-
-# # Write JSON object to a file
-# with open('users.json', 'w', encoding='utf-8') as file:
-#     json.dump(data, file, ensure_ascii=False, indent=4) 27 2
-# 获取当前文件的目录
 current_dir = path.dirname(path.abspath(__file__))
 # 构建 users.json 文件的绝对路径
 users_file_path = path.join(current_dir, 'users.json')
+
+
+
+
 
 # Open the users.json file and load the data
 with open(users_file_path, 'r') as file:
