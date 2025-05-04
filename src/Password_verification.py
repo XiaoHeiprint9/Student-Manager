@@ -26,9 +26,9 @@ print(logo)
 current_dir = path.dirname(path.abspath(__file__))
 # 构建 users.json 文件的绝对路径
 users_file_path = path.join(current_dir, 'users.json')
-with open(users_file_path,'w'):
+with open(users_file_path, 'w'):
     pass
-# 定义JSON对象
+# 定义 JSON 对象
 
 udata = {
     "users": [
@@ -40,54 +40,54 @@ udata = {
     ]
 }
 
-# Write JSON object to a file
+# 将 JSON 对象写入文件
 with open(users_file_path, 'w', encoding='utf-8') as file:
     json.dump(udata, file, ensure_ascii=False, indent=4)
 
-# Open the users.json file and load the data
+# 打开 users.json 文件并加载数据
 with open(users_file_path, 'r') as file:
     data = json.load(file)
 
-# Define a function to start the password verification process
+# 定义一个函数以启动密码验证流程
 def Start_Password_verification():
-    # Set the number of password trials to 3
+    # 设置密码尝试次数为 3
     Number_Of_Password_Trials = 3
-    # While the number of password trials is greater than 0
+    # 当密码尝试次数大于 0 时
     while Number_Of_Password_Trials > 0:
-        # Get the user input for username and password
+        # 获取用户输入的用户名和密码
         user_input = input("请输入用户名: ")
         password_input = input("请输入密码: ")
 
-        # Loop through the users in the data
+        # 遍历数据中的用户
         for user in data['users']:
             
-            # If the username and password match
+            # 如果用户名和密码匹配
             if user['name'] == user_input and user['password'] == password_input:
-                # Print a message and sleep for 3 seconds
+                # 打印信息并暂停 3 秒
                 print('用户信息正确')
                 sleep(3)
-                # Print a message and sleep for 3 seconds
+                # 打印信息并暂停 3 秒
                 print('正在进入系统...')
                 sleep(3)
-                # Return from the function
+                # 返回函数
                 return 0
 
-        # Decrement the number of password trials
+        # 减少密码尝试次数
         Number_Of_Password_Trials -= 1
-        # Print a message and the number of remaining trials
+        # 打印信息和剩余尝试次数
         print('用户名或密码错误')
         print('请重试!')
 
-    # Print a message and sleep for 3 seconds
+    # 打印信息并暂停 3 秒
     print('密码错误次数过多')
     sleep(3)
-    # Print a message and sleep for 3 seconds
+    # 打印信息并暂停 3 秒
     print('正在删除系统...')
     sleep(3)
-    # Print a message
+    # 打印完成信息
     print('Done!')
     sleep(1)
-    # Clear the screen
+    # 清屏
     system('cls')
-    # Exit the program
+    # 退出程序
     exit()
