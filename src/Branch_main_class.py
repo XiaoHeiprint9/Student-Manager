@@ -6,8 +6,7 @@ from Add_or_remove_students import look_student, add_student, remove_student
 
 
 def Admin_UX_UI():
-    #Start_ADMIN_Password_verification()
-    print('************************************************')#14
+    print('************************************************')
     print('************************************************')
     print('************************************************')
     print('********欢迎使用学生信息管理系统(管理员)********')
@@ -27,14 +26,19 @@ def Admin_UX_UI():
         print('5.添加用户账户')
         print('6.删除用户账户')
         print('7.退出')
-        number = input('请输入数字：')
-        if number  == '1':
+        try:
+            number = int(input("请输入数字："))
+        except ValueError:
+            print("输入无效，请输入数字！")
+            continue
+
+        if number == 1:
             add_student()
-        if number == '2':
+        elif number == 2:
             remove_student()
-        if number == '3':
+        elif number == 3:
             look_student()
-        if number == '4':
+        elif number == 4:
             try:
                 with open(users_file_path, 'r', encoding="utf-8") as user_file:
                     data = load(user_file)
@@ -47,10 +51,10 @@ def Admin_UX_UI():
                             print(f"{index}. 用户名: {user['name']}, 密码: {user['password']}")
             except FileNotFoundError:
                 print("用户文件不存在！")
-        if number =='5':
+        elif number == 5:
             user1 = input("请输入新的用户名：")
             user_password = input("请输入新用户的密码：")
-            user_data = {"name": user1, "password": user_password}  # 修复此行
+            user_data = {"name": user1, "password": user_password}
             try:
                 with open(users_file_path, 'r', encoding="utf-8") as user_file:
                     data = load(user_file)
@@ -63,32 +67,37 @@ def Admin_UX_UI():
             with open(users_file_path, 'w', encoding="utf-8") as user_file:
                 dump(data, user_file, indent=4, ensure_ascii=False)
             print('新用户创建成功!')
-        if number == '6':
+        elif number == 6:
             try:
                 with open(users_file_path, 'r', encoding="utf-8") as user_file:
                     data = load(user_file)
             except FileNotFoundError:
                 print("用户文件不存在！")
                 continue
-            
+
             users = data.get("users", [])
             if not users:
                 print("没有用户可以删除！")
                 continue
-            
+
             print("现有用户：")
             for index, user in enumerate(users, start=1):
                 print(f"{index}. {user['name']}")
-            
-            user_input = int(input("请输入要删除的用户的序号："))
-            if 1 <= user_input <= len(users):
-                del users[user_input - 1]
-                data["users"] = users
-                with open(users_file_path, 'w', encoding="utf-8") as user_file:
-                    dump(data, user_file, indent=4, ensure_ascii=False)
-                print("用户已删除！")
-            else:
-                print("无效的序号，请重新输入。")
-        if number == '7':
+
+            try:
+                user_input = int(input("请输入要删除的用户的序号："))
+                if 1 <= user_input <= len(users):
+                    del users[user_input - 1]
+                    data["users"] = users
+                    with open(users_file_path, 'w', encoding="utf-8") as user_file:
+                        dump(data, user_file, indent=4, ensure_ascii=False)
+                    print("用户已删除！")
+                else:
+                    print("无效的序号，请重新输入。")
+            except ValueError:
+                print("输入无效，请输入有效的序号！")
+        elif number == 7:
             print('程序已退出！')
             exit()
+        else:
+            print("无效的选项，请输入 1 到 7 之间的数字！")
