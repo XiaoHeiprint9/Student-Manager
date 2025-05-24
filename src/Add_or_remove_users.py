@@ -67,7 +67,7 @@ def Start_ADMIN_Password_verification():
         # 减少尝试次数
         Number_Of_Password_Trials -= 1
         print('用户名或密码错误')
-        print(f'请重试! 剩余尝试次数：{Number_Of_Password_Trials}')
+        print(f'请重试! ')
 
     print('密码错误次数过多')
     sleep(3)
